@@ -4,25 +4,25 @@
 @import url(map.scss);
 
 @mixin breakPointSmall {
-  @media screen and (min-width: 576px) {
+  @media screen and (max-width: 576px) {
     @content;
   }
 }
 
 @mixin breakPointMedium {
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     @content;
   }
 }
 
 @mixin breakPointBig {
-  @media screen and (min-width: 992px) {
+  @media screen and (max-width: 992px) {
     @content;
   }
 }
 
 @mixin breakPointBigest {
-  @media screen and (min-width: 1200px) {
+  @media screen and (max-width: 1200px) {
     @content;
   }
 }
@@ -30,8 +30,10 @@
 @mixin buttonStyle {
     text-align: center;
     padding: 10px;
-    height: 40px;
-    width: 240px;
+    padding-top: 10px;
+    margin: 0px 40px;
+    width: 213px;
+    height: 55px;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     color: #fff;
     border: 1px solid white;
@@ -88,11 +90,6 @@ $light: #fff;
 //     }
 // }
 
-@include breakPointBigest {
-  .container {
-    background-color: $dark;
-  }
-}
 
 .header {
   display: flex;
@@ -125,6 +122,11 @@ $light: #fff;
   .header__nav a {
     margin: auto;
   }
+}
+
+.header__a:visited {
+  color: $light;
+  background-color: #333;
 }
 
 @media screen and (max-width: 1100px) {
@@ -242,28 +244,30 @@ $light: #fff;
     text-align: center;
 }
 
-.product__button {
-    @include buttonStyle;
-    color: $light;
-    background-color: $dark;
-    &:hover {
-        @include buttonoStyleHover;
-    }
 
-}
 .product__buttons {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  & button {
-    background-color: aliceblue;
-    color: $dark;
-    border: 0.7px solid black;
-    margin: 10px;
-    padding: 2px;
-    flex-grow: 1;
-    box-shadow: 6px 4px 0px palegoldenrod;
+  // & button {
+  //   background-color: aliceblue;
+  //   color: $dark;
+  //   border: 0.7px solid black;
+  //   margin: 10px;
+  //   padding: 2px;
+  //   flex-grow: 1;
+  //   box-shadow: 6px 4px 0px palegoldenrod;
+  // }
+}
+
+.product__button {
+  @include buttonStyle;
+  color: $light;
+  background-color: $dark;
+  &:hover {
+      @include buttonoStyleHover;
   }
+
 }
 
 .product__images {
@@ -473,8 +477,7 @@ line-height: 140%;
     line-height: normal;
     letter-spacing: 1.4px;
     text-transform: uppercase;
-    height: 60px;
-    
+   
     &:hover {
         @include buttonoStyleHover;
     }
